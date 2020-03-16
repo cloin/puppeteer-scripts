@@ -34,7 +34,7 @@ const fs = require('fs');
   ]);
 
   console.info(". Goto analytics");
-  await page.goto('https://cloud.redhat.com/ansible/automation-analytics/clusters', { waitUntil: 'networkidle2' });
+  await page.goto('https://cloud.redhat.com/ansible/automation-analytics/clusters', { waitUntil: 'networkidle0' });
   console.info(".   Take screenshot");
   await page.screenshot({ path: './screenshots/analytics.jpg', type: 'jpeg', fullPage: true });
 
@@ -44,7 +44,7 @@ const fs = require('fs');
   await page.screenshot({ path: './screenshots/hub.jpg', type: 'jpeg', fullPage: true });
 
   console.info(". Goto vulnerability");
-  await page.goto('https://cloud.redhat.com/rhel/vulnerability/cves?impact=7&page=1&sort=-public_date', { waitUntil: 'networkidle2' });
+  await page.goto('https://cloud.redhat.com/rhel/vulnerability/cves?impact=7&page=1&sort=-public_date', { waitUntil: 'networkidle0' });
   console.info(".   Take screenshot");
   await page.screenshot({ path: './screenshots/vulnerability.jpg', type: 'jpeg', fullPage: true });
 
