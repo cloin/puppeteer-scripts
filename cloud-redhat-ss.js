@@ -12,9 +12,15 @@ const fs = require('fs');
   }
   console.info("Browser successfully started");
   
+  // navigate to cloud.redhat.com
+  // with a specific browser window size
+
   let page = await browser.newPage();
   await page.setViewport({ width: 1400, height: 1000 })
   await page.goto('https://cloud.redhat.com', { waitUntil: 'networkidle2' });
+
+  // click on the "Login" button
+  // enter login details and click login
 
   console.info("Login to portal");
 
@@ -33,6 +39,9 @@ const fs = require('fs');
     page.click('#_eventId_submit'),
   ]);
 
+  // navigate to 3 different pages
+  // and take screenshots of each page
+
   console.info(". Goto analytics");
   await page.goto('https://cloud.redhat.com/ansible/automation-analytics/clusters', { waitUntil: 'networkidle0' });
   console.info(".   Take screenshot");
@@ -48,8 +57,10 @@ const fs = require('fs');
   console.info(".   Take screenshot");
   await page.screenshot({ path: './screenshots/vulnerability.jpg', type: 'jpeg', fullPage: true });
 
+  // all done close page close browser
+
   console.info("Closing browser");
-	await page.close();
+  await page.close();
   await browser.close();
   console.info("Done");
 })();
